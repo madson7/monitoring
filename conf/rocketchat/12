@@ -1,4 +1,0 @@
-docker swarm join --token SWMTKN-1-5r0m7jiop6vpv4aycle3eva0a9tvx48szk6y923fe213iud4h5-40kvvlvkqcrvmoz1zp87imiqg 10.180.0.2:2377
-
-
-curl -X POST -H 'Content-Type: application/json' --data '{"icon_url":"https://avatars3.githubusercontent.com/u/48142654?s=460&v=4","text":"Example message","attachments":[{"title":"Rocket.Chat","title_link":"https://rocket.chat","text":"Rocket.Chat, the best open source chat","image_url":"/images/integration-attachment-example.png","color":"#764FA5"}]}' http://noc.jacare.tech:3080/hooks/undefined/undefined
