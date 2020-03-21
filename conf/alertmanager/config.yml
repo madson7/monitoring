@@ -7,7 +7,7 @@ receivers:
     - name: 'rocketchat'
       webhook_configs:
           - send_resolved: false
-            url: 'INCOMING_WEBHOOK'
+            url: 'curl -X POST -H 'Content-Type: application/json' --data '{"icon_url":"https://avatars3.githubusercontent.com/u/48142654?s=460&v=4","text":"Example message","attachments":[{"title":"Rocket.Chat","title_link":"https://rocket.chat","text":"Rocket.Chat, the best open source chat","image_url":"/images/integration-attachment-example.png","color":"#764FA5"}]}' http://noc.jacare.tech:3080/hooks/undefined/undefined'
 
 
 ### IF YOU WANT USE SLACK, UNCOMMENT THE LINES BELLOW AND COMMENT THE LINES ABOVE
