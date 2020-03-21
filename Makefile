@@ -4,7 +4,7 @@ init:
 	docker swarm init
 
 start:
-	docker stack deploy -c docker-compose.yml giropops
+	docker stack deploy -c docker-compose.yml monitor
 
 service:
 	docker service ls
