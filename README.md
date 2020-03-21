@@ -5,6 +5,7 @@ Full stack tools for monitoring containers and other stuff. ;)
 - AlertManager
 - Rocket.Chat
 - Docker
+- cAdvisor
 - Grafana
 - Node_Exporter
 
@@ -104,6 +105,7 @@ Creating network giropops_default
 Creating service giropops_prometheus
 Creating service giropops_node-exporter
 Creating service giropops_alertmanager
+Creating service giropops_cadvisor
 Creating service giropops_grafana
 Creating service giropops_rocketchat
 Creating service giropops_mongo
@@ -116,6 +118,7 @@ Verify if services are ok:
 
 ID              NAME                          MODE         REPLICAS  IMAGE                                  PORTS
 2j5vievon95j    giropops_alertmanager         replicated   1/1       linuxtips/alertmanager_alpine:latest   *:9093->9093/tcp
+y1kinszpqzpg    giropops_cadvisor             global       1/1       google/cadvisor:latest                 *:8080->8080/tcp
 jol20u8pahlp    giropops_grafana              replicated   1/1       grafana/grafana:latest                 *:3000->3000/tcp
 t3635s4xh5cp    giropops_mongo                replicated   1/1       mongo:3.2
 t8vnb7xuyfa8    giropops_mongo-init-replica   replicated   0/1       mongo:3.2
