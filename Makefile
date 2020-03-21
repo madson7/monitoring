@@ -8,3 +8,6 @@ start:
 
 service:
 	docker service ls
+
+remove:
+	docker stack rm monitor
