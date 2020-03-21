@@ -9,6 +9,6 @@ start:
 service:
 	docker service ls
 
-remove:
-	docker stack rm monitor
-	docker image rm $(docker image ls -a -q)
+#remove:
+	#docker stack rm monitor
+	#docker image rm $(docker image ls -a -q)
