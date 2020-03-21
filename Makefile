@@ -8,3 +8,7 @@ start:
 
 service:
 	docker service ls
+
+remove:
+	docker stack rm giropops
+	docker image rm $(docker image ls -a -q)
