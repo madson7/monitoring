@@ -18,4 +18,4 @@ scrape_configs:
     honor_labels: true
     scrape_interval: 5s
     static_configs:
-         - targets: ['noc.jacere.tech:19999']
+         - targets: ['http://noc.jacare.tech:19999']
