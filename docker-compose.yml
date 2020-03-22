@@ -3,7 +3,7 @@ version: '3.3'
 services:
 
   prometheus:
-    build: ./dockerfiles/prometheus
+    image: madson7/prometheus_alpine
     volumes:
       - ./conf/prometheus/:/etc/prometheus/
       - prometheus_data:/var/lib/prometheus
