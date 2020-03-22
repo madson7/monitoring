@@ -25,3 +25,9 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
          - targets: ['noc.jacare.tech:19999']
+  - job_name: 'node-exporter'
+    dns_sd_configs:
+    - names:
+      - 'tasks.node-exporter'
+      type: 'A'
+      port: 9100
