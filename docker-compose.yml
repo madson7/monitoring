@@ -3,7 +3,7 @@ version: '3.3'
 services:
 
   prometheus:
-    image: linuxtips/prometheus_alpine
+    build: ./dockerfiles/prometheus
     volumes:
       - ./conf/prometheus/:/etc/prometheus/
       - prometheus_data:/var/lib/prometheus

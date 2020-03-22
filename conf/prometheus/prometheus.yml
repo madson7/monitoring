@@ -2,15 +2,9 @@ global:
   scrape_interval:     10s
   evaluation_interval: 10s
   external_labels:
-      monitor: 'giropops-monitoring'
+      monitor: 'monitoring'
 rule_files:
   - 'alert.rules'
-alerting:
-  alertmanagers:
-  - scheme: http
-    static_configs:
-    - targets:
-      - "alertmanager:9093"
 
 scrape_configs:
   - job_name: 'prometheus'
@@ -25,9 +19,3 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
          - targets: ['noc.jacare.tech:19999']
-  - job_name: 'node-exporter'
-    dns_sd_configs:
-    - names:
-      - 'tasks.node-exporter'
-      type: 'A'
-      port: 9100
