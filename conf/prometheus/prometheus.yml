@@ -16,6 +16,6 @@ scrape_configs:
     params:
       format: [prometheus]
     honor_labels: true
-    scrape_interval: 5s
+    scrape_interval: 1s
     static_configs:
          - targets: ['noc.jacare.tech:19999']
