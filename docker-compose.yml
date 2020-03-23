@@ -12,6 +12,22 @@ services:
     ports:
       - 9090:9090
 
+  cadvisor:
+    image: google/cadvisor
+    hostname: '{{.Node.ID}}'
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - backend
+    deploy:
+      mode: global
+    ports:
+      - 8080:8080
+
   grafana:
     image: grafana/grafana
     depends_on:

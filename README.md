@@ -4,6 +4,7 @@ Full stack tools for monitoring containers and other stuff. ;)
 - Prometheus
 - Docker
 - Grafana
+- cAdvisor
 
 # Howto
 First of all, clone the monitoring repo:

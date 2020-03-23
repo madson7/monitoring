@@ -19,3 +19,9 @@ scrape_configs:
     scrape_interval: 1s
     static_configs:
          - targets: ['noc.jacare.tech:19999']
+  - job_name: 'cadvisor'
+    dns_sd_configs:
+    - names:
+      - 'tasks.cadvisor'
+      type: 'A'
+      port: 8080
