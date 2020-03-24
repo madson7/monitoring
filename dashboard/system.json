@@ -359,7 +359,7 @@
       "1d"
     ]
   },
-  "timezone": "",
+  "timezone": "browser",
   "title": "System",
   "uid": "vKJF4GrWk",
   "variables": {
