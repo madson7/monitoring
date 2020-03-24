@@ -167,13 +167,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "netdata_net_net_kilobits_persec_average{chart=\"net.ens4\",dimension=\"received\",family=\"ens4\",instance=\"noc.jacare.tech:19999\",job=\"netdata\"}/8",
+          "expr": "netdata_net_net_kilobits_persec_average{chart=\"net.ens4\",dimension=\"received\",family=\"ens4\",instance=\"jacare.tech:19999\",job=\"netdata\"}/8",
           "interval": "",
           "legendFormat": "{{dimension}}",
           "refId": "B"
         },
         {
-          "expr": "netdata_net_net_kilobits_persec_average{chart=\"net.ens4\",dimension=\"sent\",family=\"ens4\",instance=\"noc.jacare.tech:19999\",job=\"netdata\"}/8",
+          "expr": "netdata_net_net_kilobits_persec_average{chart=\"net.ens4\",dimension=\"sent\",family=\"ens4\",instance=\"jacare.tech:19999\",job=\"netdata\"}/8",
           "hide": false,
           "interval": "",
           "legendFormat": "{{dimension}}",
@@ -273,7 +273,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "netdata_system_cpu_percentage_average{chart=\"system.cpu\",dimension=\"user\",family=\"cpu\",instance=\"noc.jacare.tech:19999\",job=\"netdata\"}",
+          "expr": "netdata_system_cpu_percentage_average{chart=\"system.cpu\",dimension=\"user\",family=\"cpu\",instance=\"jacare.tech:19999\",job=\"netdata\"}",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -282,7 +282,7 @@
           "refId": "A"
         },
         {
-          "expr": "netdata_system_cpu_percentage_average{chart=\"system.cpu\",dimension=\"system\",family=\"cpu\",instance=\"noc.jacare.tech:19999\",job=\"netdata\"}",
+          "expr": "netdata_system_cpu_percentage_average{chart=\"system.cpu\",dimension=\"system\",family=\"cpu\",instance=\"jacare.tech:19999\",job=\"netdata\"}",
           "format": "time_series",
           "instant": false,
           "interval": "",
