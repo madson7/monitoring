@@ -10,7 +10,7 @@ scrape_configs:
   - job_name: 'prometheus'
     scrape_interval: 1s
     static_configs:
-         - targets: ['jacare.tech:9090']
+         - targets: ['localhost:9090']
   - job_name: 'netdata'
     metrics_path: '/api/v1/allmetrics'
     params:
