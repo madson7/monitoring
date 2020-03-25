@@ -5,6 +5,7 @@ init:
 
 build:
 	docker build -t madson7/prometheus_alpine ./dockerfiles/prometheus
+	docker build -t madson7/nginx-vts .
 
 start:
 	docker stack deploy -c docker-compose.yml monitor
@@ -16,5 +17,3 @@ remove:
 	docker stack rm monitor
 	docker image rm $(docker image ls -a -q)
 
-
-	

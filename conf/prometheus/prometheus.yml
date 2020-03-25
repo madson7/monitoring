@@ -25,3 +25,9 @@ scrape_configs:
       - 'tasks.cadvisor'
       type: 'A'
       port: 8080
+  - job_name: 'nginx-vts'
+         # metrics_path defaults to '/metrics'
+         # scheme defaults to 'http'.
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['web:8000']

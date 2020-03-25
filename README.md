@@ -43,6 +43,9 @@ Setting Netdata Exporter configuration in Prometheus:
 
 Execute deploy to create the stack of monitoring:
 ```
+# docker build -t madson7/prometheus_alpine ./dockerfiles/prometheus
+docker build -t madson7/nginx-vts .
+
 # docker stack deploy -c docker-compose.yml monitor
 
 Creating network monitor_backend
