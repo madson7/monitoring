@@ -16,7 +16,8 @@ RUN apt install -y libpcre3-dev zlib1g-dev
 RUN cd nginx && ./configure --prefix=/usr --with-compat --add-dynamic-module=./nginx-module-vts-0.1.18
 RUN cd nginx && make modules
 RUN cd nginx && make install
-RUN rm -rf /etc/nginx.conf
 
+
+ADD nginx.conf /etc/nginx.conf
 EXPOSE 8000
 ENTRYPOINT nginx -c /etc/nginx.conf

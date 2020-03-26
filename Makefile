@@ -5,7 +5,7 @@ init:
 
 build:
 	docker build -t madson7/prometheus_alpine ./dockerfiles/prometheus
-	docker build -t madson7/nginx-vts .
+	docker build -t madson7/nginx-vts ./dockerfiles/nginx-vts
 
 start:
 	docker stack deploy -c docker-compose.yml monitor
