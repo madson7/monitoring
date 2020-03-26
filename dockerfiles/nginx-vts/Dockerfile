@@ -18,6 +18,6 @@ RUN cd nginx && make modules
 RUN cd nginx && make install
 
 
-ADD nginx.conf /etc/nginx.conf
+ADD confg/nginx.conf /etc/
 EXPOSE 8000
 ENTRYPOINT nginx -c /etc/nginx.conf
