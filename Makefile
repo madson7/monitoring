@@ -15,5 +15,6 @@ service:
 
 remove:
 	docker stack rm monitor
+	docker rm $(docker ps -a -q)
 	docker image rm $(docker image ls -a -q)
 
