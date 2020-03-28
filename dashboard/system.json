@@ -12,20 +12,201 @@
       }
     ]
   },
+  "description": "cadvisor",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "links": [],
+  "iteration": 1585428733266,
+  "links": [
+    {
+      "icon": "external link",
+      "tags": [],
+      "targetBlank": true,
+      "title": " http://$instance/metrics ",
+      "type": "link",
+      "url": " http://$instance/metrics "
+    }
+  ],
   "panels": [
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": null,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 0,
+        "y": 0
+      },
+      "id": 9,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "pluginVersion": "6.7.1",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "sum(increase(nginx_vts_server_requests_total[1m]))",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "nginx_requests_total",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": null,
+      "decimals": null,
+      "format": "percentunit",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 3,
+        "y": 0
+      },
+      "id": 11,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "sum(rate(nginx_vts_server_requests_total{code!~\"5xx\"}[1m]))/sum(rate(nginx_vts_server_requests_total[1m]))",
+          "interval": "",
+          "legendFormat": "1",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Panel Title",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
     {
       "cacheTimeout": null,
       "datasource": null,
       "gridPos": {
-        "h": 5,
-        "w": 9,
+        "h": 4,
+        "w": 24,
         "x": 0,
-        "y": 0
+        "y": 5
       },
       "id": 7,
       "links": [],
@@ -110,12 +291,140 @@
           "refId": "B",
           "units": "none",
           "valueHandler": "Number Threshold"
+        },
+        {
+          "expr": "up{job=\"cadvisor\"}",
+          "interval": "",
+          "legendFormat": "{{job}}",
+          "refId": "C"
+        },
+        {
+          "expr": "count(container_last_seen{image!=\"\"})",
+          "interval": "",
+          "legendFormat": "containers docker",
+          "refId": "D"
         }
       ],
       "timeFrom": null,
       "timeShift": null,
       "title": "Serviços Ativos",
       "type": "gauge"
+    },
+    {
+      "aliasColors": {
+        "Uso de CPU": "dark-red",
+        "Uso tatal de CPU": "dark-red"
+      },
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "decimals": 1,
+      "description": "Média percentual da CPU do sistema",
+      "fill": 2,
+      "fillGradient": 4,
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "interval": "",
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 320,
+        "sort": "total",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": true,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "netdata_system_cpu_percentage_average{instance=\"jacare.tech:19999\", dimension=\"system\"}",
+          "interval": "",
+          "legendFormat": "{{dimension}}",
+          "refId": "B"
+        },
+        {
+          "expr": "netdata_system_cpu_percentage_average{instance=\"jacare.tech:19999\", dimension=\"user\"}",
+          "interval": "",
+          "legendFormat": "{{dimension}}",
+          "refId": "C"
+        },
+        {
+          "expr": "(netdata_system_cpu_percentage_average{instance=\"jacare.tech:19999\", dimension=\"idle\"}*(-1))+100",
+          "interval": "",
+          "legendFormat": "Uso tatal de CPU",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Média percentual da CPU",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": "100",
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "aliasColors": {
@@ -134,20 +443,21 @@
         "h": 5,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 14
       },
       "hiddenSeries": false,
       "id": 6,
       "legend": {
-        "alignAsTable": false,
+        "alignAsTable": true,
         "avg": false,
         "current": true,
         "hideEmpty": false,
         "hideZero": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
+        "max": true,
+        "min": true,
+        "rightSide": true,
         "show": true,
+        "sideWidth": 320,
         "total": false,
         "values": true
       },
@@ -229,31 +539,24 @@
       "dashes": false,
       "datasource": null,
       "decimals": null,
-      "description": "Média percentual da CPU do sistema - netdata",
-      "fill": 2,
-      "fillGradient": 4,
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 5,
+        "h": 6,
         "w": 24,
         "x": 0,
-        "y": 10
+        "y": 19
       },
       "hiddenSeries": false,
-      "id": 2,
-      "interval": "",
+      "id": 13,
       "legend": {
         "alignAsTable": true,
         "avg": false,
         "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
         "max": false,
         "min": false,
         "rightSide": true,
         "show": true,
-        "sideWidth": 250,
-        "sort": "total",
-        "sortDesc": true,
         "total": false,
         "values": true
       },
@@ -273,29 +576,17 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "netdata_system_cpu_percentage_average{chart=\"system.cpu\",dimension=\"user\",family=\"cpu\",instance=\"jacare.tech:19999\",job=\"netdata\"}",
-          "format": "time_series",
-          "instant": false,
+          "expr": "container_memory_usage_bytes{project=~\"$project\",instance=~\"$instance\",image!=\"\"}",
           "interval": "",
-          "intervalFactor": 1,
-          "legendFormat": "{{dimension}}",
+          "legendFormat": "{{name}}",
           "refId": "A"
-        },
-        {
-          "expr": "netdata_system_cpu_percentage_average{chart=\"system.cpu\",dimension=\"system\",family=\"cpu\",instance=\"jacare.tech:19999\",job=\"netdata\"}",
-          "format": "time_series",
-          "instant": false,
-          "interval": "",
-          "intervalFactor": 1,
-          "legendFormat": "{{dimension}}",
-          "refId": "B"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "System_CPU_Master",
+      "title": "Memory Usage by Container",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -311,8 +602,8 @@
       },
       "yaxes": [
         {
-          "decimals": 0,
-          "format": "percent",
+          "decimals": null,
+          "format": "bytes",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -325,7 +616,7 @@
           "logBase": 1,
           "max": null,
           "min": null,
-          "show": true
+          "show": false
         }
       ],
       "yaxis": {
@@ -339,7 +630,90 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "isNone": true,
+          "selected": false,
+          "text": "None",
+          "value": ""
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(container_last_seen, project)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": null,
+        "multi": false,
+        "name": "project",
+        "options": [],
+        "query": "label_values(container_last_seen, project)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "isNone": true,
+          "selected": false,
+          "text": "None",
+          "value": ""
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(container_last_seen{project=~\"$project\"}, server)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "",
+        "multi": false,
+        "name": "server",
+        "options": [],
+        "query": "label_values(container_last_seen{project=~\"$project\"}, server)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "text": "10.0.7.8:8080",
+          "value": "10.0.7.8:8080"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(container_last_seen{project=~\"$project\"}, instance)",
+        "hide": 2,
+        "includeAll": false,
+        "index": -1,
+        "label": "instance",
+        "multi": false,
+        "name": "instance",
+        "options": [],
+        "query": "label_values(container_last_seen{project=~\"$project\"}, instance)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
     "from": "now-5m",
@@ -365,5 +739,5 @@
   "variables": {
     "list": []
   },
-  "version": 19
+  "version": 64
 }
