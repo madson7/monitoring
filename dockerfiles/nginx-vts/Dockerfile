@@ -17,6 +17,5 @@ RUN cd nginx && ./configure --prefix=/usr --with-compat --add-dynamic-module=./n
 RUN cd nginx && make modules
 RUN cd nginx && make install
 
-
 EXPOSE 8000
 ENTRYPOINT nginx -c /etc/nginx.conf
