@@ -43,6 +43,8 @@ services:
       - 3000:3000
   web:
     image: madson7/nginx-vts
+    volumes:
+      - ./conf/nginx-vts:/etc/
     networks:
       - backend
     ports:
