@@ -5,6 +5,9 @@ Full stack tools for monitoring containers and other stuff. ;)
 - Docker
 - Grafana
 - cAdvisor
+- nginx-vts
+
+# User Makefile
 
 # Howto
 First of all, clone the monitoring repo:
